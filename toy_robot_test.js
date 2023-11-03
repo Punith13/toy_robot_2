@@ -5,9 +5,15 @@ const ToyRobot = require("./toy_robot");
 
 describe("Toy Robot Tests", () => {
   let robot;
+  let originalConsoleLog; // Store a reference to the original console.log
 
   beforeEach(() => {
     robot = new ToyRobot();
+    originalConsoleLog = console.log; // Store the original console.log function
+  });
+
+  afterEach(() => {
+    console.log = originalConsoleLog; // Restore the original console.log function
   });
 
   it("should place the robot on the table", () => {
@@ -89,7 +95,7 @@ describe("Toy Robot Tests", () => {
     robot.executeCommand("REPORT");
 
     // Restore the original console.log function
-    console.log = console._log;
+    console.log = originalConsoleLog; // Restore the original console.log
 
     // Expect the captured output to match the expected output
     expect(capturedOutput.trim()).to.equal("0,1,NORTH");
