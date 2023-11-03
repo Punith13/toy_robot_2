@@ -17,7 +17,7 @@ You can download and install Node.js from [nodejs.org](https://nodejs.org/).
 1. Clone this repository to your local machine:
 
    ```shell
-   git clone https://github.com/punith13/toy-robot-2.git
+   git clone git@github.com:Punith13/toy_robot_2.git
    ```
 
 2. Navigate to the project directory:
