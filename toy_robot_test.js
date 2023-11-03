@@ -100,4 +100,19 @@ describe("Toy Robot Tests", () => {
     // Expect the captured output to match the expected output
     expect(capturedOutput.trim()).to.equal("0,1,NORTH");
   });
+
+  it("should check the invalid command output", () => {
+    // Capture the output
+    let capturedOutput = null;
+    console.log = (output) => (capturedOutput = output); // Capture the console.log output
+
+    // Issue invalid command
+    robot.executeCommand("INVALID");
+
+    // Restore the original console.log function
+    console.log = originalConsoleLog; // Restore the original console.log
+
+    // Expect the captured output to match the expected output
+    expect(capturedOutput.trim()).to.equal("Invalid command");
+  });
 });
